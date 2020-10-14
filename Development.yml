@@ -1,0 +1,85 @@
+# Universal Windows Platform
+# Build a Universal Windows Platform project using Visual Studio.
+# Add steps that test and distribute an app, save build artifacts, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'x64'
+  buildConfiguration: 'Debug'
+  appxPackageDir: '$(Build.ArtifactStagingDirectory)/AppxPackages'
+  webPackageDir: '$(Build.ArtifactStagingDirectory)/WebPackages'
+
+steps:
+
+- task: PowerShell@2
+  enabled: true
+  displayName: Github Sync
+  inputs:
+    targetType: 'inline'
+    script: 'git push https://$(GithubUsername):$(GithubPassword)@github.com/arezkisaba/BabylonTools.git HEAD:master'
+
+- task: NuGetToolInstaller@1
+  enabled: true
+  displayName: Nuget installation
+
+- task: NuGetCommand@2
+  enabled: true
+  displayName: Nuget restore
+  inputs:
+    command: 'restore'
+    restoreSolution: '$(solution)'
+    feedsToUse: 'select'
+    vstsFeed: 'f48150d8-bc5e-41fc-9295-d308720814c6'
+    noCache: true
+    verbosityRestore: 'Normal'
+
+- task: VSBuild@1
+  enabled: true
+  displayName: Build solution
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  enabled: true
+  displayName: Dotnet publish on [BabylonTools.NSGSync]
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: '$(Build.SourcesDirectory)/$(Build.Repository.Name)/BabylonTools.NSGSync/*.csproj'
+    arguments: '-c Debug -o $(webPackageDir) -r "win-x86" --self-contained true'
+
+- task: DotNetCoreCLI@2
+  enabled: true
+  displayName: Dotnet publish on [BabylonTools.Sherlock]
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: '$(Build.SourcesDirectory)/$(Build.Repository.Name)/BabylonTools.Sherlock/*.csproj'
+    arguments: '-c Debug -o $(webPackageDir) -r "win-x86" --self-contained true'
+
+- task: DotNetCoreCLI@2
+  enabled: true
+  displayName: Dotnet publish on [BabylonTools.XMap]
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: '$(Build.SourcesDirectory)/$(Build.Repository.Name)/BabylonTools.XMap/*.csproj'
+    arguments: '-c Debug -o $(webPackageDir) -r "win-x86" --self-contained true'
+
+- task: PublishBuildArtifacts@1
+  enabled: true
+  displayName: Artifacts publish
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'

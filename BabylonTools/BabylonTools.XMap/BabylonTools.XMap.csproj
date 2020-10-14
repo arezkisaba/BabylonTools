@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Lib.Core" Version="1.0.5-alpha.2" />
+    <PackageReference Include="Lib.Win32" Version="1.0.5-alpha.1" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ThirdParty\J2i.Net.XInputWrapper\J2i.Net.XInputWrapper.csproj" />
+  </ItemGroup>
+
+</Project>
