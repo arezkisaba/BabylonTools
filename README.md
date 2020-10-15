@@ -16,6 +16,7 @@ Cet outil console m'aide principalement quand j'ai besoin de comprendre le fonct
 
 Par exemple, pour le projet **BabylonTools.NSGSync**, il a fallu que je sache où est stockée la liste des jeux ajoutés manuellement dans Steam afin de pouvoir la générer par la suite.
 Pour se faire je lance le programme en précisant le dossier d'installation de Steam, j'ajoute un jeu manuellement depuis Steam et j'attends que le programme me dise **quels fichiers on été modifié sur le disque**.
+
 Cela s'avère relativement pratique pour effectuer certaines tâches de **reverse engineering**.
 
 # BabylonTools.XMap (XboxMap)
@@ -24,5 +25,7 @@ Cet outil console m'aide principalement lorsque j'utilise des **émulateurs** (Pl
 Il me permet d'associer des actions précises à un raccourci de **manette de Xbox 360**.
 Par exemple, il est impossible dans la plupart des jeux en question de quitter directement le jeu et donc de fermer l'émulateur, il faut donc dans ce cas là définir un raccourci pour effectuer l'action __quitter__.
 Le but est de ne pas avoir à se servir de la souris pour faire ça et de rester tranquillement dans son canapé.
+
+
 
 N'hésitez pas à me contacter !
