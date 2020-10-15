@@ -55,7 +55,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: false
-    projects: '$(Build.SourcesDirectory)/$(Build.Repository.Name)/BabylonTools.NSGSync/*.csproj'
+    projects: '$(Build.SourcesDirectory)/BabylonTools/BabylonTools.NSGSync/*.csproj'
     arguments: '-c Debug -o $(webPackageDir) -r "win-x86" --self-contained true'
 
 - task: DotNetCoreCLI@2
@@ -64,7 +64,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: false
-    projects: '$(Build.SourcesDirectory)/$(Build.Repository.Name)/BabylonTools.Sherlock/*.csproj'
+    projects: '$(Build.SourcesDirectory)/BabylonTools/BabylonTools.Sherlock/*.csproj'
     arguments: '-c Debug -o $(webPackageDir) -r "win-x86" --self-contained true'
 
 - task: DotNetCoreCLI@2
@@ -73,7 +73,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: false
-    projects: '$(Build.SourcesDirectory)/$(Build.Repository.Name)/BabylonTools.XMap/*.csproj'
+    projects: '$(Build.SourcesDirectory)/BabylonTools/BabylonTools.XMap/*.csproj'
     arguments: '-c Debug -o $(webPackageDir) -r "win-x86" --self-contained true'
 
 - task: PublishBuildArtifacts@1
