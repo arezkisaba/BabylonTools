@@ -1,20 +1,28 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Introduction
+BabylonTools est une solution contenant divers outils dont je me sers sur mon ordinateur principal afin de répondre à certains besoins spécifiques, ils seront détaillés plus bas :)
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+# BabylonTools.NSGSync (NonSteamGameSync)
+Cet outil console me permet de synchroniser des roms **Playstation 1** et **Playstation 2** d'un dossier vers ma librairie **Steam**.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+Ceci est possible grâce à la génération et l'écriture d'un fichier d'**extension .vdf** lisible par Steam. 
+De cette manière ils sont accessibles comme n'importe quel jeu de Steam.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+Émulateurs utilisés :
+- Playstation 2 : __pcsx2__
+- Playstation 1 : __ePSXe__ (pcsx2 ne supporte pas encore à 100% l'émulation de jeux Playstation 1)
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+# BabylonTools.Sherlock
+Cet outil console m'aide principalement quand j'ai besoin de comprendre le fonctionnement d'un programme et de savoir comment récupérer telles ou telles informations depuis un service.
+
+Par exemple, pour le projet **BabylonTools.NSGSync**, il a fallu que je sache où est stockée la liste des jeux ajoutés manuellement dans Steam afin de pouvoir la générer par la suite.
+Pour se faire je lance le programme en précisant le dossier d'installation de Steam, j'ajoute un jeu manuellement depuis Steam et j'attends que le programme me dise **quels fichiers on été modifié sur le disque**.
+Cela s'avère relativement pratique pour effectuer certaines tâches de **reverse engineering**.
+
+# BabylonTools.XMap (XboxMap)
+Cet outil console m'aide principalement lorsque j'utilise des **émulateurs** (Playstation 1, Playstation 2) depuis Steam en mode **BigPicture** depuis un client comme le **Nvidia Shield**.
+
+Il me permet d'associer des actions précises à un raccourci de **manette de Xbox 360**.
+Par exemple, il est impossible dans la plupart des jeux en question de quitter directement le jeu et donc de fermer l'émulateur, il faut donc dans ce cas là définir un raccourci pour effectuer l'action __quitter__.
+Le but est de ne pas avoir à se servir de la souris pour faire ça et de rester tranquillement dans son canapé.
+
+N'hésitez pas à me contacter !
