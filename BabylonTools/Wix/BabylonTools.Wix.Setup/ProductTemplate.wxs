@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="6a0b422c-2ac2-494b-8939-21d8daf6354b" Name="BabylonTools.XMap" Language="1033" Version="1.0.0.0" Manufacturer="Arezki Saba" UpgradeCode="808d4cdc-50e4-467a-9146-d41d195916da">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <WixVariable Id="WixUIBannerBmp" Value="Images\installer_top-banner.bmp" />
+
+    <!--
+    <UIRef Id="WixUI_InstallDir"/>
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    -->
+
+    <Feature Id="ProductFeature" Title="BabylonTools.XMap.Setup" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
+		<!--
+    <CustomAction Id="SayHello" BinaryKey="BabylonTools.Wix.Setup.CustomAction.CA" DllEntry="DeferredHello" Execute="deferred" Return="check" Impersonate="no" />
+    <Property Id="SayHello" Value="Name=World" />
+    <Binary Id="BabylonTools.Wix.Setup.CustomAction.CA" SourceFile="..\BabylonTools.Wix.Setup.CustomAction\bin\Debug\BabylonTools.Wix.Setup.CustomAction.CA.dll" />
+    <InstallExecuteSequence>
+      <Custom Action="SayHello" After="InstallFiles" />
+    </InstallExecuteSequence>
+    -->
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="BabylonTools.XMap" />
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+##TOREPLACE##
+    </ComponentGroup>
+  </Fragment>
+</Wix>

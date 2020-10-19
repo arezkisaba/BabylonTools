@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ThirdParty\J2i.Net.XInputWrapper\J2i.Net.XInputWrapper.csproj" />
+    <ProjectReference Include="..\..\ThirdParty\J2i.Net.XInputWrapper\J2i.Net.XInputWrapper.csproj" />
   </ItemGroup>
 
 </Project>
