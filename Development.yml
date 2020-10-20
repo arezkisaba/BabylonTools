@@ -18,6 +18,10 @@ variables:
 
 steps:
 
+- checkout: git://Lib/Lib
+  enabled: true
+  displayName: Lib Sync
+
 - task: PowerShell@2
   enabled: true
   displayName: Github Sync
