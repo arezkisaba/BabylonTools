@@ -18,16 +18,16 @@ variables:
 
 steps:
 
-- checkout: git://Lib/Lib
-  enabled: true
-  displayName: Lib Sync
-
 - task: PowerShell@2
   enabled: true
   displayName: Github Sync
   inputs:
     targetType: 'inline'
     script: 'git push https://$(GithubUsername):$(GithubPassword)@github.com/arezkisaba/BabylonTools.git HEAD:master'
+
+- checkout: git://Lib/Lib
+  enabled: true
+  displayName: Lib Sync
 
 - task: NuGetToolInstaller@1
   enabled: true
