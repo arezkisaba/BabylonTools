@@ -18,6 +18,13 @@ variables:
 
 steps:
 
+- task: PowerShell@2
+  enabled: true
+  displayName: Github Sync
+  inputs:
+    targetType: 'inline'
+    script: 'git push https://$(GithubUsername):$(GithubPassword)@github.com/arezkisaba/BabylonTools.git HEAD:master'
+
 - task: NuGetToolInstaller@1
   enabled: true
   displayName: Nuget installation
@@ -76,10 +83,3 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-
-- task: PowerShell@2
-  enabled: true
-  displayName: Github Sync
-  inputs:
-    targetType: 'inline'
-    script: 'git push https://$(GithubUsername):$(GithubPassword)@github.com/arezkisaba/BabylonTools.git HEAD:master'
